@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Вход</title>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body class="bg">
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo"></div>
+        <div class="brand">
+          <div class="brand__title">ICHKI ISHLAR VAZIRLIGI</div>
+          <div class="brand__subtitle">MALAKA OSHIRISH INSTITUTI</div>
+        </div>
+      </div>
+      <div class="topbar__right">
+        <button class="btn btn--ghost" id="openLogin">Кириш</button>
+      </div>
+    </header>
+
+    <main class="center">
+      <div class="modal" id="loginModal" aria-hidden="true">
+        <div class="modal__card">
+          <div class="modal__head">
+            <div class="modal__title">Tizimga kirish</div>
+            <button class="iconbtn" id="closeLogin" aria-label="Закрыть">✕</button>
+          </div>
+          <form id="loginForm" class="form">
+            <label class="field">
+              <div class="field__label">Login</div>
+              <input class="input" name="username" autocomplete="username" />
+            </label>
+            <label class="field">
+              <div class="field__label">Parol</div>
+              <input class="input" name="password" type="password" autocomplete="current-password" />
+            </label>
+            <div class="form__row">
+              <div class="error" id="loginError"></div>
+              <button class="btn" type="submit">Kirish</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="/public/login.js"></script>
+  </body>
+</html>

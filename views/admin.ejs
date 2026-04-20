@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Админ</title>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body class="bg">
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo"></div>
+        <div class="brand">
+          <div class="brand__title">Администрирование</div>
+          <div class="brand__subtitle"><%= user.departmentName %></div>
+        </div>
+      </div>
+      <div class="topbar__right">
+        <a class="btn btn--ghost" href="/app">Поиск</a>
+        <button class="btn btn--ghost" id="logoutBtn">Выход</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="grid">
+        <section class="card">
+          <div class="card__title">Создать аккаунт</div>
+          <form id="createUserForm" class="form">
+            <label class="field">
+              <div class="field__label">Логин</div>
+              <input class="input" name="username" autocomplete="off" />
+            </label>
+            <label class="field">
+              <div class="field__label">Пароль</div>
+              <input class="input" name="password" type="password" autocomplete="new-password" />
+            </label>
+            <label class="field">
+              <div class="field__label">Отдел</div>
+              <input class="input" name="departmentName" />
+            </label>
+            <label class="field">
+              <div class="field__label">Роль</div>
+              <select class="input" name="role">
+                <option value="user" selected>user</option>
+                <option value="admin">admin</option>
+              </select>
+            </label>
+            <label class="field">
+              <div class="field__label">Истекает (необязательно)</div>
+              <input class="input" name="expiresAt" type="datetime-local" />
+            </label>
+            <div class="form__row">
+              <div class="error" id="createUserError"></div>
+              <button class="btn" type="submit">Создать</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card__title">Загрузить сертификат</div>
+          <form id="uploadCertForm" class="form" enctype="multipart/form-data">
+            <label class="field">
+              <div class="field__label">ФИО</div>
+              <input class="input" name="personFullName" />
+            </label>
+            <label class="field">
+              <div class="field__label">JSHIR</div>
+              <input class="input" name="personJshir" />
+            </label>
+            <label class="field">
+              <div class="field__label">Название</div>
+              <input class="input" name="title" />
+            </label>
+            <label class="field">
+              <div class="field__label">Отдел</div>
+              <input class="input" name="departmentName" />
+            </label>
+            <label class="field">
+              <div class="field__label">Файл</div>
+              <input class="input" name="file" type="file" />
+            </label>
+            <div class="form__row">
+              <div class="error" id="uploadCertError"></div>
+              <button class="btn" type="submit">Загрузить</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <section class="card card--wide">
+        <div class="card__title">Пользователи</div>
+        <div class="tablewrap">
+          <table class="table" id="usersTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Логин</th>
+                <th>Роль</th>
+                <th>Отдел</th>
+                <th>Истекает</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/public/admin.js"></script>
+  </body>
+</html>
