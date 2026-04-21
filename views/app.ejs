@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ICHKI ISHLAR VAZIRLIGI TOSHKENT MINTAQAVIY O'QUV MARKAZI — Sertifikatni izlash</title>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body class="bg">
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo"></div>
+        <div class="brand">
+          <div class="brand__title">ICHKI ISHLAR VAZIRLIGI</div>
+          <div class="brand__subtitle">TOSHKENT MINTAQAVIY O'QUV MARKAZI</div>
+        </div>
+      </div>
+      <div class="topbar__right">
+        <div class="dept"><%= user.departmentName %></div>
+        <% if (user.role === 'admin') { %>
+          <a class="btn btn--ghost" href="/admin">Админ</a>
+        <% } %>
+        <button class="btn btn--ghost" id="logoutBtn">Выход</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <h1 class="h1">Sertifikatni izlash</h1>
+
+      <section class="panel">
+        <div class="searchbar">
+          <div class="tabs" role="tablist">
+            <button class="tab tab--active" data-mode="jshir" type="button">JSHIR</button>
+            <button class="tab" data-mode="name" type="button">Ism</button>
+          </div>
+          <input class="input input--lg" id="query" placeholder="To'liq ism kiriting" />
+          <button class="btn" id="searchBtn" type="button">Izlash</button>
+        </div>
+      </section>
+
+      <section class="results" id="results"></section>
+    </main>
+
+    <script>
+      window.__USER__ = <%- JSON.stringify(user) %>;
+    </script>
+    <script src="/public/app.js"></script>
+  </body>
+</html>
