@@ -15,7 +15,7 @@ body {
 
 .bg {
   background:
-    linear-gradient(180deg, rgba(10, 16, 26, 0.7), rgba(7, 11, 17, 0.9)),
+    linear-gradient(180deg, rgba(10, 16, 26, 0.35), rgba(7, 11, 17, 0.55)),
     url("/public/bg-campus.jpg") center/cover no-repeat;
 }
 
